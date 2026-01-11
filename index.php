@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+/* RDS CONFIG */
 $host = "logindb.cj8maka4e96b.us-west-2.rds.amazonaws.com";
 $user = "admin";
 $pass = "admin123";
@@ -11,17 +12,24 @@ if ($conn->connect_error) {
     die("Database connection failed");
 }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+/* CHECK IF FORM SUBMITTED */
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-$result = $conn->query($sql);
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-if ($result->num_rows == 1) {
-    $_SESSION['user'] = $username;
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $_SESSION['user'] = $username;
+    } else {
+        echo "<h3 style='color:red'>Invalid Login</h3>";
+        echo "<a href='index.html'>Go Back</a>";
+        exit;
+    }
 } else {
-    echo "<h3 style='color:red'>Invalid Login</h3>";
-    echo "<a href='index.html'>Go Back</a>";
+    header("Location: index.html");
     exit;
 }
 ?>
