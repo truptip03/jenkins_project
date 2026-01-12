@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloud Student Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e8f0ff, #f7fbff);
+        }
+
+        .login-box {
+            width: 360px;
+            padding: 38px;
+            background: linear-gradient(180deg, #ffffff, #f5f9ff);
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(31, 115, 183, 0.2);
+            border-top: 6px solid #1f73b7;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f73b7;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+
+        .jenkins-text {
+            text-align: center;
+            color: #5f6f81;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 16px;
+            border-radius: 7px;
+            border: 1px solid #cfd9e6;
+            font-size: 14px;
+            background-color: #fdfefe;
+        }
+
+        input:focus {
+            border-color: #1f73b7;
+            box-shadow: 0 0 6px rgba(31, 115, 183, 0.3);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #1f73b7, #4da3ff);
+            border: none;
+            border-radius: 7px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #155a96, #2f80ed);
+            box-shadow: 0 6px 18px rgba(31, 115, 183, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #5f6f81;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>Cloud Student Login</h2>
+
+        <!-- 🔁 CHANGE THIS LINE FOR JENKINS REBUILD DEMO -->
+        <div class="jenkins-text">
+            Deployed via Jenkins CI/CD Pipeline – Build v1.0
+        </div>
+
+        <form action="index.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="footer-text">
+            AWS EC2 • RDS • Jenkins • DevOps
+        </div>
+    </div>
+
+</body>
+</html>
